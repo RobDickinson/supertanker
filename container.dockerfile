@@ -27,8 +27,12 @@ mkdir -p /opt/supervisor/bin && mkdir -p /opt/supervisor/logs && chown -R runtim
 mkdir -p /usr/local/var && chown -R runtime:runtime /usr/local/var && \
 chown -R runtime:runtime /var/log/mongodb && \
 chown -R runtime:runtime /etc/opensearch /usr/share/opensearch /var/lib/opensearch /var/log/opensearch && \
-chown -R runtime:runtime /etc/default/graylog-server /etc/graylog/server /var/lib/graylog-server /var/log/graylog-server && \
-sed -i 's|GRAYLOG_COMMAND_WRAPPER=""|GRAYLOG_COMMAND_WRAPPER="exec"|g' /etc/default/graylog-server
+chown -R runtime:runtime /etc/default/graylog-server /etc/graylog/server /var/lib/graylog-server /var/log/graylog-server
+
+# Configure graylog
+RUN sed -i 's|GRAYLOG_COMMAND_WRAPPER=""|GRAYLOG_COMMAND_WRAPPER="exec"|g' /etc/default/graylog-server && \
+sed -i 's|<Appenders>|<Appenders><Console name="STDOUT" target="SYSTEM_OUT"><PatternLayout pattern="%d{yyyy-MM-dd'T'HH:mm:ss.SSSXXX} %-5p [%c{1}] %m%n"/></Console>|g' /etc/graylog/server/log4j2.xml && \
+sed -i 's|<AppenderRef ref="rolling-file"/>|<AppenderRef ref="rolling-file"/><AppenderRef ref="STDOUT"/>|g' /etc/graylog/server/log4j2.xml
 
 # Configure opensearch
 COPY --chown=runtime:runtime contents/opensearch/. /etc/opensearch
