@@ -35,7 +35,7 @@ COPY --chown=runtime:runtime contents/opensearch/. /etc/opensearch
 
 # Configure supervisord
 COPY contents/supervisor/supervisord.conf /etc/supervisord.conf
-COPY --chown=runtime:runtime contents/bin/. /opt/supertanker/bin
+COPY --chown=runtime:runtime contents/supervisor/autoinit.sh /opt/supervisor/bin
 
 # Configure entrypoint
 EXPOSE 5044/tcp
