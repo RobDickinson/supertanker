@@ -1,4 +1,4 @@
-# Contributing to supertanker
+# Contributing to Supertanker
 
 ## Building Local Containers
 
