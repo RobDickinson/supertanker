@@ -1,13 +1,5 @@
 # Supertanker
-Supertanker is an experimental, unsupported, and definitely-not-for-production Docker container that combines Graylog, MongoDB and OpenSearch in a single package.
-
-## Components
-
-* Docker
-* Graylog Open 6.0
-* MongoDB 6.0
-* OpenSearch 2.12
-* Ubuntu 22.04 LTS (Jammy)
+Supertanker is an experimental, unsupported, and definitely-not-for-production Docker container that combines Graylog, MongoDB, OpenSearch, Supervisor, and Ubuntu.
 
 ## Running Supertanker
 
