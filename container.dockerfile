@@ -38,7 +38,14 @@ COPY contents/supervisor/supervisord.conf /etc/supervisord.conf
 COPY --chown=runtime:runtime contents/bin/. /opt/supertanker/bin
 
 # Configure entrypoint
-EXPOSE 9000
+EXPOSE 5044/tcp
+EXPOSE 5140/tcp
+EXPOSE 5140/udp
+EXPOSE 9000/tcp
+EXPOSE 12201/tcp
+EXPOSE 12201/udp
+EXPOSE 13301/tcp
+EXPOSE 13302/tcp
 USER runtime
 WORKDIR /opt/supervisor/logs
 ENTRYPOINT ["/usr/bin/supervisord", "-c", "/etc/supervisord.conf"]
