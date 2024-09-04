@@ -10,7 +10,7 @@ bash clean.sh
 bash package.sh
 
 # run local container without durable storage
-docker run -d --name supertanker --rm --tmpfs /data -p 9000:9000 -e GRAYLOG_PASSWORD_SECRET="somepasswordpepper" -e GRAYLOG_ROOT_PASSWORD_SHA2="8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918" supertanker:6.0.0
+docker run -d --name supertanker --rm --tmpfs /data -p 9000:9000 -e GRAYLOG_HTTP_EXTERNAL_URI="http://localhost:9000/" -e GRAYLOG_PASSWORD_SECRET="somepasswordpepper" -e GRAYLOG_ROOT_PASSWORD_SHA2="8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918" supertanker:6.0.0
 
 # access local container as root user
 docker exec -it --user root supertanker bash
