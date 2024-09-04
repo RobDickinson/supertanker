@@ -3,7 +3,6 @@ Supertanker is an experimental, unsupported, and definitely-not-for-production D
 
 [![CodeFactor](https://www.codefactor.io/repository/github/RobDickinson/supertanker/badge)](https://www.codefactor.io/repository/github/RobDickinson/supertanker)
 [![Contributing](https://img.shields.io/badge/contributions-welcome-green.svg)](https://github.com/RobDickinson/supertanker/blob/main/CONTRIBUTING.md)
-[![License](https://img.shields.io/github/license/RobDickinson/supertanker)](https://github.com/RobDickinson/supertanker/blob/main/LICENSE)
 [![DockerHub](https://img.shields.io/docker/v/robfromboulder/supertanker)](https://hub.docker.com/repository/docker/robfromboulder/supertanker/general)
 
 ## Running Supertanker
