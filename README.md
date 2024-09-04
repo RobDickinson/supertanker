@@ -1,6 +1,11 @@
 # Supertanker
 Supertanker is an experimental, unsupported, and definitely-not-for-production Docker container that combines Graylog, MongoDB, OpenSearch, Supervisor, and Ubuntu.
 
+[![CodeFactor](https://www.codefactor.io/repository/github/RobDickinson/supertanker/badge)](https://www.codefactor.io/repository/github/RobDickinson/supertanker)
+[![Contributing](https://img.shields.io/badge/contributions-welcome-green.svg)](https://github.com/RobDickinson/supertanker/blob/main/CONTRIBUTING.md)
+[![License](https://img.shields.io/github/license/RobDickinson/supertanker)](https://github.com/RobDickinson/supertanker/blob/main/LICENSE)
+[![DockerHub](https://img.shields.io/docker/v/robfromboulder/supertanker)](https://hub.docker.com/repository/docker/robfromboulder/supertanker/general)
+
 ## Running Supertanker
 
 Start container as daemon with persistent volume:
@@ -19,7 +24,7 @@ Stop container but keep all data:
 ```bash
 docker stop supertanker
 ```
-👆 Use `docker start supertanker` when you're ready to resume
+👆 Use `docker start supertanker` when you're ready to resume.
 
 Or permanently remove container and all stored data:
 ```bash
