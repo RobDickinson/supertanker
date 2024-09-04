@@ -16,6 +16,18 @@ docker run -d --name supertanker --rm --tmpfs /data -p 9000:9000 -e GRAYLOG_HTTP
 docker exec -it --user root supertanker bash
 ```
 
+## GitHub Workflow
+
+This workflow allows you to easily create your own copy of supertanker, try out some changes, and then share your changes back to be merged, with feedback from other contributors.
+
+1. Create a fork of RobDickinson/supertanker
+2. Create a feature branch
+3. Build and test local changes
+4. Commit changes to your feature branch
+5. Open a pull request
+6. Participate in code review
+7. Celebrate your accomplishment
+
 ## Container Versioning
 
 * Your local builds will always be versioned `supertanker:6.0.0`
