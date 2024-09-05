@@ -51,7 +51,6 @@ This workflow allows you to easily create your own copy of supertanker, try out 
 The local build is for the native chipset only, but the release build is for both `amd64` and `arm64` architectures.
 
 Configure `buildx` if not already done:
-
 ```bash
 docker buildx ls
 docker buildx create --name mybuilder
@@ -59,14 +58,12 @@ docker buildx use mybuilder
 ```
 
 Build and push containers:
-
 ```bash
 bash packagex.sh 6.0.(BUILD_NUMBER)
 ```
 
 Add release tag:
-
-```
+```bash
 git tag v6.0.(BUILD_NUMBER)
 git push origin v6.0.x --tags
 ```
