@@ -8,12 +8,21 @@ Supertanker is an experimental, unsupported, and definitely-not-for-production D
 ## Running Supertanker
 
 Start container as daemon with default settings:
-
 ```bash
 docker run -d --name supertanker -v supertanker:/data -e GRAYLOG_HTTP_EXTERNAL_URI="http://`hostname -s`:9000/" -e GRAYLOG_PASSWORD_SECRET="somepasswordpepper" -e GRAYLOG_ROOT_PASSWORD_SHA2="8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918" -e TZ=UTC -p 5044:5044/tcp -p 5140:5140/tcp -p 5140:5140/udp -p 9000:9000/tcp -p 12201:12201/tcp -p 12201:12201/udp -p 13301:13301/tcp -p 13302:13302/tcp robfromboulder/supertanker:6.0.3
 ```
 
 Wait a few moments before logging into http://localhost:9000 as user `admin` with password `admin` 🎉
+
+In Graylog, go to System/Inputs and add "GELF TCP" input with default settings.
+
+In a terminal, submit a test message:
+```bash
+echo -n '{ "version": "1.1", "host": "supertanker.example.org", "short_message": "A short message", "level": 5, "_some_info": "foo" }' | nc -w0 -v localhost 12201
+```
+👆 Output should be `Connection to localhost port 12201 [tcp/*] succeeded!`
+
+In Graylog, go to Search and verify the test message was captured. 🎉🎉🎉
 
 ## Running With Custom Settings
 
