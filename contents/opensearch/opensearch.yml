@@ -1,7 +1,7 @@
 cluster.name: graylog
 network.host: 0.0.0.0
 node.name: ${HOSTNAME}
-path.data: /var/lib/opensearch
+path.data: /data/opensearch
 path.logs: /var/log/opensearch
 
 # options from graylog docker docs

@@ -32,7 +32,9 @@ chown -R runtime:runtime /etc/default/graylog-server /etc/graylog/server /var/li
 # Configure graylog
 RUN sed -i 's|GRAYLOG_COMMAND_WRAPPER=""|GRAYLOG_COMMAND_WRAPPER="exec"|g' /etc/default/graylog-server && \
 sed -i 's|<Appenders>|<Appenders><Console name="STDOUT" target="SYSTEM_OUT"><PatternLayout pattern="%d{yyyy-MM-dd'T'HH:mm:ss.SSSXXX} %-5p [%c{1}] %m%n"/></Console>|g' /etc/graylog/server/log4j2.xml && \
-sed -i 's|<AppenderRef ref="rolling-file"/>|<AppenderRef ref="rolling-file"/><AppenderRef ref="STDOUT"/>|g' /etc/graylog/server/log4j2.xml
+sed -i 's|<AppenderRef ref="rolling-file"/>|<AppenderRef ref="rolling-file"/><AppenderRef ref="STDOUT"/>|g' /etc/graylog/server/log4j2.xml && \
+sed -i 's|data_dir = /var/lib/graylog-server|data_dir = /data/graylog|g' /etc/graylog/server/server.conf && \
+sed -i 's|message_journal_dir = /var/lib/graylog-server/journal|message_journal_dir = /data/graylog/journal|g' /etc/graylog/server/server.conf
 
 # Configure opensearch
 COPY --chown=runtime:runtime contents/opensearch/. /etc/opensearch
