@@ -27,7 +27,7 @@ is a good example to copy and paste from the standard `docker run` command above
 
 ## Using a Bash Shell
 
-This container is not a walled garden, so explore and make changes as you see fit 💪
+This container is not a walled garden, so explore and make changes as you like! 💪
 
 Your bash shell will run as the `runtime` user by default, which does not have root permissions. Basic commands like `nano` and `less` and `grep` will work,
 but admin commands like `sudo` and `su` and `apt` will not.
@@ -56,7 +56,7 @@ ls -hl
 exit
 ```
 
-⚠️ For changes requiring root permissions, use the [CONTRIBUTING](CONTRIBUTING.md) guide to roll your own build.
+⚠️ For changes requiring root permissions, follow the [CONTRIBUTING](CONTRIBUTING.md) guide to connect as root or roll your own build.
 
 ## Stopping Supertanker
 
