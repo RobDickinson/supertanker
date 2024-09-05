@@ -27,12 +27,10 @@ In Graylog, go to Search and verify the test message was captured. 🎉🎉🎉
 ## Running With Custom Settings
 
 Every [configuration option](https://go2docs.graylog.org/current/setting_up_graylog/server.conf.html) for Graylog server can be set through
-[environment variable](https://docs.docker.com/reference/cli/docker/container/run/#env) parameters passed to `docker run`.
+[environment variable](https://docs.docker.com/reference/cli/docker/container/run/#env) parameters passed to `docker run`. This makes it 
+easy to try out SMTP alerting and other configurations without connecting a bash shell or editing files on the container.
 
-This makes it easy to try out SMTP alerting and other configurations without connecting a bash shell or editing files on the container.
-
-Each environment variable should be formatted as `-e GRAYLOG_[name]="[value]"` where `name` is in upper case. `GRAYLOG_PASSWORD_SECRET`
-is a good example to copy and paste from the standard `docker run` command above.
+Each environment variable should be formatted as `-e GRAYLOG_[name]="[value]"` where `name` is in upper case.
 
 ## Using a Bash Shell
 
@@ -65,7 +63,7 @@ ls -hl
 exit
 ```
 
-⚠️ For changes requiring root permissions, follow the [CONTRIBUTING](CONTRIBUTING.md) guide to connect as root or roll your own build.
+⚠️ For changes requiring root permissions, see [CONTRIBUTING](CONTRIBUTING.md) to connect as root or roll your own build.
 
 ## Stopping Supertanker
 
