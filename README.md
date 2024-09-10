@@ -47,7 +47,7 @@ Recommended when using Supertanker as a component in a larger Compose applicatio
 ### Defining the Application
 
 Create `my_supertanker_app.yml` like this:
-```bash
+```yaml
 services:
   supertanker:
     container_name: supertanker
