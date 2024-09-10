@@ -15,7 +15,6 @@ Supertanker is an experimental, unsupported, and definitely-not-for-production D
 </ul>
 
 
-***
 ## Running With Docker
 
 Recommended when you just wanna run Graylog with the fewest possible steps.
@@ -50,7 +49,6 @@ docker stop supertanker; docker rm supertanker; docker volume rm supertanker
 ```
 
 
-***
 ## Running With Docker Compose
 
 Recommended when using Supertanker as a component in a larger Compose application, or in a
@@ -110,7 +108,6 @@ docker compose -f my_supertanker_app.yml down --remove-orphans --volumes
 ```
 
 
-***
 ## Sending Test Messages
 
 In Graylog, go to System/Inputs and add "GELF TCP" input with default settings.
@@ -124,7 +121,6 @@ echo -n '{ "version": "1.1", "host": "supertanker.example.org", "short_message":
 In Graylog, go to Search and verify the test message was captured. 🎉🎉🎉
 
 
-***
 ## Using a Bash Shell
 
 This container is not a walled garden, so explore and make changes as you like! 💪
