@@ -64,6 +64,6 @@ bash packagex.sh 6.0.(BUILD_NUMBER)
 
 Add release tag:
 ```bash
-git tag v6.0.(BUILD_NUMBER)
+git tag 6.0.(BUILD_NUMBER)
 git push origin v6.0.x --tags
 ```
