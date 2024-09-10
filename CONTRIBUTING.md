@@ -14,13 +14,19 @@ bash package.sh
 
 Run local container without durable storage:
 ```bash
-docker run -d --name supertanker --rm --tmpfs /data -e GRAYLOG_HTTP_EXTERNAL_URI="http://localhost:9000/" -e GRAYLOG_PASSWORD_SECRET="somepasswordpepper" -e GRAYLOG_ROOT_PASSWORD_SHA2="8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918" -p 5044:5044/tcp -p 5140:5140/tcp -p 5140:5140/udp -p 9000:9000/tcp -p 12201:12201/tcp -p 12201:12201/udp -p 13301:13301/tcp -p 13302:13302/tcp supertanker:6.0.0
+docker run -d --name supertanker --rm --tmpfs /data -e GRAYLOG_HTTP_EXTERNAL_URI="http://localhost:9000/" -e GRAYLOG_PASSWORD_SECRET="somepasswordpepper" -e GRAYLOG_ROOT_PASSWORD_SHA2="8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918" -p 5044:5044/tcp -p 5140:5140/tcp -p 5140:5140/udp -p 9000:9000/tcp -p 12201:12201/tcp -p 12201:12201/udp -p 13301:13301/tcp -p 13302:13302/tcp supertanker:6.1.0
 ```
 
 Access local container as root user:
 ```bash
 docker exec -it --user root supertanker bash
 ```
+
+## Applying Security Updates
+
+* Update `container.dockerfile` when new Ubuntu base versions become available
+* Let `apt update` and `apt upgrade` do the heavy lifting
+* Scan the container image: `trivy image supertanker:6.1.0`
 
 ## GitHub Workflow
 
@@ -36,15 +42,9 @@ This workflow allows you to easily create your own copy of supertanker, try out 
 
 ## Container Versioning
 
-* Your local builds will always be versioned `supertanker:6.0.0`
-* Public release builds will never use version `6.0.0` by convention
-* This makes it easy to distinguish local and public builds when testing
-
-## Applying Security Updates
-
-* Update `container.dockerfile` when new Ubuntu base versions become available
-* Let `apt update` and `apt upgrade` do the heavy lifting
-* Scan the container image prior to release: `trivy image supertanker:6.0.0`
+* Your local builds will always be versioned `6.1.0` (and this is assumed by build scripts)
+* Public release numbers use the installed Graylog version and a patch version like this: `6.1.0b1` (for beta 1) 
+* This makes it easy to identify what version of Graylog is bundled, and reduces chance of confusing local and public builds
 
 ## Release Process
 
@@ -59,11 +59,13 @@ docker buildx use mybuilder
 
 Build and push containers:
 ```bash
-bash packagex.sh 6.0.(BUILD_NUMBER)
+bash packagex.sh 6.1.(BUILD_NUMBER)(BUILD_LETTER)
 ```
+
+Update version number shown in README and commit this change.
 
 Add release tag:
 ```bash
-git tag 6.0.(BUILD_NUMBER)
-git push origin v6.0.x --tags
+git tag 6.1.(BUILD_NUMBER)(BUILD_LETTER)
+git push origin v6.1.x --tags
 ```

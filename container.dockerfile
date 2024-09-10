@@ -7,7 +7,7 @@ ENV CONTAINER_VERSION=$VERSION
 RUN sed -i 's|ports.ubuntu.com|mirrors.ocf.berkeley.edu|g' /etc/apt/sources.list && apt update && apt install --no-install-recommends -y ca-certificates curl gnupg wget && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /etc/ssl/private/ssl-cert-snakeoil.key && install -m 0755 -d /etc/apt/keyrings
 
 # Add Graylog repository
-RUN wget https://packages.graylog2.org/repo/packages/graylog-6.0-repository_latest.deb && dpkg -i graylog-6.0-repository_latest.deb && rm -rf graylog-6.0-repository_latest.deb
+RUN wget https://packages.graylog2.org/repo/packages/graylog-6.1-repository_latest.deb && dpkg -i graylog-6.1-repository_latest.deb && rm -rf graylog-6.1-repository_latest.deb
 
 # Add MongoDB repository
 RUN curl -fsSL https://pgp.mongodb.com/server-6.0.asc | gpg -o /usr/share/keyrings/mongodb-server-6.0.gpg --dearmor

@@ -5,6 +5,6 @@
 docker stop supertanker
 docker rm supertanker
 docker volume rm supertanker
-docker image rm -f supertanker:6.0.0
+docker image rm -f supertanker:6.1.0
 docker system prune -f
 docker builder prune -f
