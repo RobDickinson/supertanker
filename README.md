@@ -5,16 +5,6 @@ Supertanker is an experimental, unsupported, and definitely-not-for-production D
 [![Contributing](https://img.shields.io/badge/contributions-welcome-green.svg)](https://github.com/RobDickinson/supertanker/blob/main/CONTRIBUTING.md)
 [![DockerHub](https://img.shields.io/docker/v/robfromboulder/supertanker)](https://hub.docker.com/repository/docker/robfromboulder/supertanker/general)
 
-## Contents
-
-<ul>
-<li><a href="#running_with_docker">Running with Docker</a></li>
-<li><a href="#running_with_compose">Running with Docker Compose</a></li>
-<li><a href="#running_with_portainer">Running with Portainer</a></li>
-<li><a href="#sending_test_messages">Sending Test Messages</a></li>
-<li><a href="#using_a_bash_shell">Using a Bash Shell</a></li>
-</ul>
-
 
 ## Running With Docker
 
