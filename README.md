@@ -5,7 +5,7 @@ Supertanker is an experimental, unsupported, and definitely-not-for-production D
 [![Contributing](https://img.shields.io/badge/contributions-welcome-green.svg)](https://github.com/RobDickinson/supertanker/blob/main/CONTRIBUTING.md)
 [![DockerHub](https://img.shields.io/docker/v/robfromboulder/supertanker)](https://hub.docker.com/repository/docker/robfromboulder/supertanker/general)
 
-### Contents
+## Contents
 
 <ul>
 <li><a href="#running_with_docker">Running with Docker</a></li>
