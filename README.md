@@ -10,6 +10,7 @@ Supertanker is an experimental, unsupported, and definitely-not-for-production D
 <ul>
 <li><a href="#running_with_docker">Running with Docker</a></li>
 <li><a href="#running_with_compose">Running with Docker Compose</a></li>
+<li><a href="#running_with_portainer">Running with Portainer</a></li>
 <li><a href="#sending_test_messages">Sending Test Messages</a></li>
 <li><a href="#using_a_bash_shell">Using a Bash Shell</a></li>
 </ul>
@@ -51,8 +52,7 @@ docker stop supertanker; docker rm supertanker; docker volume rm supertanker
 
 ## Running With Docker Compose
 
-Recommended when using Supertanker as a component in a larger Compose application, or in a
-[Portainer custom template](https://docs.portainer.io/user/docker/templates/custom).
+Recommended when using Supertanker as a component in a larger Compose application.
 
 ### Defining the Application
 
@@ -106,6 +106,11 @@ Permanently remove containers and volumes:
 ```bash
 docker compose -f my_supertanker_app.yml down --remove-orphans --volumes
 ```
+
+
+## Running With Portainer
+
+TBD
 
 
 ## Sending Test Messages
