@@ -12,7 +12,7 @@ Build local container:
 bash package.sh
 ```
 
-Run local container without durable storage:
+Test local container:
 ```bash
 docker run -d --name supertanker --rm -e GRAYLOG_HTTP_EXTERNAL_URI="http://localhost:9000/" -e GRAYLOG_PASSWORD_SECRET="somepasswordpepper" -e GRAYLOG_ROOT_PASSWORD_SHA2="8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918" -p 5044:5044/tcp -p 5140:5140/tcp -p 5140:5140/udp -p 9000:9000/tcp -p 12201:12201/tcp -p 12201:12201/udp -p 13301:13301/tcp -p 13302:13302/tcp supertanker:6.1.0
 ```
@@ -20,6 +20,11 @@ docker run -d --name supertanker --rm -e GRAYLOG_HTTP_EXTERNAL_URI="http://local
 Access local container as root user:
 ```bash
 docker exec -it --user root supertanker bash
+```
+
+Stop local container:
+```bash
+docker stop supertanker
 ```
 
 ## Applying Security Updates
