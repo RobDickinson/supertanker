@@ -2,6 +2,7 @@
 
 # create data directories
 mkdir -p /data/graylog/journal
+mkdir -p /data/graylog/libnative
 mkdir -p /data/mongodb
 mkdir -p /data/opensearch
 
