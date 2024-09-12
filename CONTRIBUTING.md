@@ -48,7 +48,7 @@ This workflow allows you to easily create your own copy of supertanker, try out 
 ## Container Versioning
 
 * Your local builds will always be versioned `6.1.0` (and this is assumed by build scripts)
-* Public release numbers use the installed Graylog version and a patch version like this: `6.1.0b1` (for beta 1) 
+* Public release numbers use the installed Graylog version and a patch version like this: `6.1.beta1` (for 1st beta) or `6.1.0c` (for 3rd build of 6.1.0) 
 * This makes it easy to identify what version of Graylog is bundled, and reduces chance of confusing local and public builds
 
 ## Release Process
