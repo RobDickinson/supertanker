@@ -59,10 +59,12 @@ Create `my_supertanker_app.yml` like this:
 services:
   supertanker:
     container_name: supertanker
-    image: "robfromboulder/supertanker:6.1.beta1"
+    image: "robfromboulder/supertanker:6.1.beta1-datanode"
     environment:
+      GRAYLOG_DATANODE_INSECURE_STARTUP: "true"
+      GRAYLOG_DATANODE_PASSWORD_SECRET: "somepasswordpeppersomepasswordpeppersomepasswordpeppersomepasswordpepper"
       GRAYLOG_HTTP_EXTERNAL_URI: "http://localhost:9000/"
-      GRAYLOG_PASSWORD_SECRET: "somepasswordpepper"
+      GRAYLOG_PASSWORD_SECRET: "somepasswordpeppersomepasswordpeppersomepasswordpeppersomepasswordpepper"
       GRAYLOG_ROOT_PASSWORD_SHA2: "8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918"
       TZ: UTC
     ports:
