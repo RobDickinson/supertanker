@@ -106,11 +106,6 @@ docker compose -f my_supertanker_app.yml down --remove-orphans --volumes
 ```
 
 
-## Running With Portainer
-
-TBD
-
-
 ## Sending Test Messages
 
 In Graylog, go to System/Inputs and add "GELF TCP" input with default settings.
