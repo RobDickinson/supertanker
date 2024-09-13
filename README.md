@@ -4,6 +4,15 @@ Supertanker is an experimental, unsupported, and definitely-not-for-production D
 [![CodeFactor](https://www.codefactor.io/repository/github/RobDickinson/supertanker/badge)](https://www.codefactor.io/repository/github/RobDickinson/supertanker)
 [![Contributing](https://img.shields.io/badge/contributions-welcome-green.svg)](https://github.com/RobDickinson/supertanker/blob/v6.1.x/CONTRIBUTING.md)
 
+## System Requirements
+
+* Docker Desktop for Windows (WSL 2)
+* Docker Desktop for Mac (Intel and Apple Silicon)
+* Docker for Linux 
+    * requires `vm.max_map_count=262144`
+    * to check value: `sudo sysctl vm.max_map_count`
+    * if not set, add `vm.max_map_count=262144` to `/etc/sysctl.conf`
+
 
 ## Running With Docker
 
