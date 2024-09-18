@@ -14,7 +14,7 @@ RUN curl -fsSL https://pgp.mongodb.com/server-6.0.asc | gpg -o /usr/share/keyrin
 RUN echo "deb [arch="$(dpkg --print-architecture)" signed-by=/usr/share/keyrings/mongodb-server-6.0.gpg] https://repo.mongodb.org/apt/ubuntu jammy/mongodb-org/6.0 multiverse" | tee /etc/apt/sources.list.d/mongodb-org-6.0.list
 
 # Install all packages, then create runtime user and directories
-RUN apt update && apt upgrade -y && DEBIAN_FRONTEND=noninteractive TZ=Etc/UTC apt install --no-install-recommends -y graylog-datanode graylog-server less mongodb-org nano supervisor && \
+RUN apt update && apt upgrade -y && DEBIAN_FRONTEND=noninteractive TZ=Etc/UTC apt install --no-install-recommends -y graylog-datanode=6.1.0-10.beta.2 graylog-server=6.1.0-10.beta.2 less mongodb-org nano supervisor && \
 rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /etc/ssl/private/ssl-cert-snakeoil.key && \
 addgroup runtime && useradd -g runtime runtime && \
 mkdir -p /data && chmod a+rwx /data && \
