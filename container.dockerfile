@@ -2,20 +2,21 @@ ARG VERSION
 FROM ubuntu:jammy-20240911.1
 ARG VERSION
 ENV CONTAINER_VERSION=$VERSION
+ENV GRAYLOG_VERSION=6.1.0-13.rc.1
 
 # Switch to Berkeley OCF mirror for updates, install curl and gnupg
 RUN sed -i 's|ports.ubuntu.com|mirrors.ocf.berkeley.edu|g' /etc/apt/sources.list && apt update && apt install --no-install-recommends -y ca-certificates curl gnupg wget && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /etc/ssl/private/ssl-cert-snakeoil.key && install -m 0755 -d /etc/apt/keyrings
-
-# Add Graylog repository
-RUN wget https://packages.graylog2.org/repo/packages/graylog-6.1-repository_latest.deb && dpkg -i graylog-6.1-repository_latest.deb && rm -rf graylog-6.1-repository_latest.deb
 
 # Add MongoDB repository
 RUN curl -fsSL https://pgp.mongodb.com/server-6.0.asc | gpg -o /usr/share/keyrings/mongodb-server-6.0.gpg --dearmor
 RUN echo "deb [arch="$(dpkg --print-architecture)" signed-by=/usr/share/keyrings/mongodb-server-6.0.gpg] https://repo.mongodb.org/apt/ubuntu jammy/mongodb-org/6.0 multiverse" | tee /etc/apt/sources.list.d/mongodb-org-6.0.list
 
 # Install all packages, then create runtime user and directories
-RUN apt update && apt upgrade -y && DEBIAN_FRONTEND=noninteractive TZ=Etc/UTC apt install --no-install-recommends -y graylog-datanode graylog-server less mongodb-org nano supervisor && \
-rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /etc/ssl/private/ssl-cert-snakeoil.key && \
+RUN apt update && apt upgrade -y && \
+wget "https://packages.graylog2.org/repo/debian/pool/stable/6.1/g/graylog-datanode/graylog-datanode_${GRAYLOG_VERSION}_$(dpkg --print-architecture).deb" && \
+wget "https://packages.graylog2.org/repo/debian/pool/stable/6.1/g/graylog-server/graylog-server_${GRAYLOG_VERSION}_$(dpkg --print-architecture).deb" && \
+DEBIAN_FRONTEND=noninteractive TZ=Etc/UTC apt install --no-install-recommends -y ./*.deb less mongodb-org nano supervisor && \
+rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /etc/ssl/private/ssl-cert-snakeoil.key ./*.deb && \
 addgroup runtime && useradd -g runtime runtime && \
 mkdir -p /data && chmod a+rwx /data && \
 mkdir -p /opt/supervisor/bin && mkdir -p /opt/supervisor/logs && chown -R runtime:runtime /opt/supervisor && \
