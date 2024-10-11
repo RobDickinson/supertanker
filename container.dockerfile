@@ -13,8 +13,8 @@ RUN echo "deb [arch="$(dpkg --print-architecture)" signed-by=/usr/share/keyrings
 
 # Install all packages, then create runtime user and directories
 RUN apt update && apt upgrade -y && \
-wget "https://packages.graylog2.org/repo/debian/pool/stable/6.1/g/graylog-datanode/graylog-datanode_${GRAYLOG_VERSION}_$(dpkg --print-architecture).deb" && \
-wget "https://packages.graylog2.org/repo/debian/pool/stable/6.1/g/graylog-server/graylog-server_${GRAYLOG_VERSION}_$(dpkg --print-architecture).deb" && \
+wget --progress=bar:force "https://packages.graylog2.org/repo/debian/pool/stable/6.1/g/graylog-datanode/graylog-datanode_${GRAYLOG_VERSION}_$(dpkg --print-architecture).deb" && \
+wget --progress=bar:force "https://packages.graylog2.org/repo/debian/pool/stable/6.1/g/graylog-server/graylog-server_${GRAYLOG_VERSION}_$(dpkg --print-architecture).deb" && \
 DEBIAN_FRONTEND=noninteractive TZ=Etc/UTC apt install --no-install-recommends -y ./*.deb less mongodb-org nano supervisor && \
 rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /etc/ssl/private/ssl-cert-snakeoil.key ./*.deb && \
 addgroup runtime && useradd -g runtime runtime && \
