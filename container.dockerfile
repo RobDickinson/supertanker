@@ -2,7 +2,7 @@ ARG VERSION
 FROM ubuntu:jammy-20240911.1
 ARG VERSION
 ENV CONTAINER_VERSION=$VERSION
-ENV GRAYLOG_VERSION=6.1.0-13.rc.1
+ENV GRAYLOG_VERSION=6.1.0-14.rc.2
 
 # Switch to Berkeley OCF mirror for updates, install curl and gnupg
 RUN sed -i 's|ports.ubuntu.com|mirrors.ocf.berkeley.edu|g' /etc/apt/sources.list && apt update && apt install --no-install-recommends -y ca-certificates curl gnupg wget && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /etc/ssl/private/ssl-cert-snakeoil.key && install -m 0755 -d /etc/apt/keyrings
