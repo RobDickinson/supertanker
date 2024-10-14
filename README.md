@@ -22,7 +22,7 @@ Recommended when you just wanna run Graylog with the fewest possible steps.
 
 Start container as daemon with default (insecure) settings:
 ```bash
-docker run -d --name supertanker -v supertanker:/data -e GRAYLOG_DATANODE_INSECURE_STARTUP="true" -e GRAYLOG_DATANODE_PASSWORD_SECRET="somepasswordpeppersomepasswordpeppersomepasswordpeppersomepasswordpepper" -e GRAYLOG_HTTP_EXTERNAL_URI="http://localhost:9000/" -e GRAYLOG_PASSWORD_SECRET="somepasswordpeppersomepasswordpeppersomepasswordpeppersomepasswordpepper" -e GRAYLOG_ROOT_PASSWORD_SHA2="8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918" -e TZ=UTC -p 5044:5044/tcp -p 5140:5140/tcp -p 5140:5140/udp -p 9000:9000/tcp -p 12201:12201/tcp -p 12201:12201/udp -p 13301:13301/tcp -p 13302:13302/tcp robfromboulder/supertanker:6.1.rc1
+docker run -d --name supertanker -v supertanker:/data -e GRAYLOG_DATANODE_INSECURE_STARTUP="true" -e GRAYLOG_DATANODE_PASSWORD_SECRET="somepasswordpeppersomepasswordpeppersomepasswordpeppersomepasswordpepper" -e GRAYLOG_HTTP_EXTERNAL_URI="http://localhost:9000/" -e GRAYLOG_PASSWORD_SECRET="somepasswordpeppersomepasswordpeppersomepasswordpeppersomepasswordpepper" -e GRAYLOG_ROOT_PASSWORD_SHA2="8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918" -e TZ=UTC -p 5044:5044/tcp -p 5140:5140/tcp -p 5140:5140/udp -p 9000:9000/tcp -p 12201:12201/tcp -p 12201:12201/udp -p 13301:13301/tcp -p 13302:13302/tcp robfromboulder/supertanker:6.1.rc2
 ```
 
 👆 Every [configuration option](https://go2docs.graylog.org/current/setting_up_graylog/server.conf.html) for Graylog server can be set through
@@ -59,7 +59,7 @@ Create `my_supertanker_app.yml` like this:
 services:
   supertanker:
     container_name: supertanker
-    image: "robfromboulder/supertanker:6.1.rc1"
+    image: "robfromboulder/supertanker:6.1.rc2"
     environment:
       GRAYLOG_DATANODE_INSECURE_STARTUP: "true"
       GRAYLOG_DATANODE_PASSWORD_SECRET: "somepasswordpeppersomepasswordpeppersomepasswordpeppersomepasswordpepper"
