@@ -4,12 +4,12 @@
 
 Stop local container and reset build state:
 ```bash
-bash clean.sh
+./clean.sh
 ```
 
 Build local container:
 ```bash
-bash package.sh
+./package.sh
 ```
 
 Run local container without persistent volume or security:
@@ -64,7 +64,7 @@ docker buildx use mybuilder
 
 Build and push containers:
 ```bash
-bash packagex.sh 6.1.(BUILD_NUMBER)(BUILD_LETTER)
+./packagex.sh 6.1.(BUILD_NUMBER)(BUILD_LETTER)
 ```
 
 Update version number shown in README and commit this change.
